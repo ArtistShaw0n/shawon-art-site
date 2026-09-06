@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" role="img" aria-label="Line-art portrait: painting">
+  <defs><style>
+    .l{stroke:#f4f4f6;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .l2{stroke:#f4f4f6;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+    .f{stroke:#f4f4f6;stroke-width:3.5;stroke-linecap:round;opacity:.4}
+    .ind{stroke:#a78bfa;stroke-width:6.5;stroke-linecap:round;stroke-linejoin:round}
+    .vio{stroke:#6d5efc;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .lime{stroke:#d6ff4f;stroke-width:6;stroke-linecap:round}
+  </style></defs>
+
+  <!-- canvas edge entering from the left -->
+  <path class="l" d="M96 150 L232 150 L232 806 L96 806"/>
+  <path class="f" d="M104 828 L246 828"/>
+  <path class="f" d="M150 828 L112 986"/><path class="f" d="M198 828 L230 986"/>
+  <!-- what is being painted: three violet strokes and grass -->
+  <path class="vio" d="M150 320 C122 344 120 396 146 424"/>
+  <path class="vio" d="M172 452 C130 494 118 588 132 668"/>
+  <path class="vio" d="M196 470 C212 528 216 606 206 668"/>
+  <path class="lime" d="M124 706 L124 664"/><path class="lime" d="M156 712 L156 668"/>
+  <path class="lime" d="M188 708 L188 664"/><path class="lime" d="M220 700 L220 658"/>
+
+  <!-- profile head facing the canvas -->
+  <path class="l" d="M470 262
+    C424 268 396 306 390 350
+    C386 380 362 400 350 418 C342 430 348 440 362 442
+    C368 458 366 476 380 484 C372 500 376 516 392 522
+    C396 552 408 578 436 592 C466 606 502 600 524 580"/>
+  <!-- hair mass: the curls -->
+  <path fill="#f4f4f6" d="M452 262 C540 244 606 288 616 366 C624 430 600 486 560 518
+    C572 460 566 400 540 362 C512 320 470 302 430 312 C444 292 448 274 452 262 Z"/>
+  <path class="f" d="M486 288 C512 296 534 312 548 334"/>
+  <path class="f" d="M560 330 C578 356 586 388 584 420"/>
+  <!-- eye, brow, ear -->
+  <path class="l2" d="M398 366 C412 358 430 358 442 364"/>
+  <circle cx="416" cy="390" r="7" fill="#f4f4f6"/>
+  <path class="l2" d="M508 396 C524 392 536 404 534 420 C532 436 518 444 506 438"/>
+
+  <!-- neck, shoulder, back -->
+  <path class="l" d="M436 596 L430 654"/><path class="l" d="M540 566 L560 634"/>
+  <path class="l" d="M430 654 C374 686 348 754 344 838 C340 918 348 962 354 986"/>
+  <path class="l" d="M560 634 C614 668 640 738 644 818 C646 892 640 946 634 986"/>
+
+  <!-- arm reaching to the canvas, brush in hand -->
+  <path class="l" d="M446 700 C398 704 344 690 300 660"/>
+  <path class="l2" d="M300 660 C286 650 276 640 270 630"/>
+  <path class="ind" d="M274 634 L198 566"/>
+  <path class="ind" d="M202 570 l-22 -20"/>
+
+  <!-- palette held low right, carrying the site's colours -->
+  <path class="l" d="M600 792 C556 776 500 782 468 806 C434 832 432 872 462 892 C498 914 566 912 610 890 C650 870 658 828 640 806 C630 796 614 790 600 792 Z"/>
+  <ellipse class="l2" cx="552" cy="842" rx="25" ry="18"/>
+  <circle cx="492" cy="828" r="13" fill="#a78bfa"/>
+  <circle cx="514" cy="874" r="13" fill="#d6ff4f"/>
+  <circle cx="612" cy="846" r="13" fill="#6d5efc"/>
+  <circle cx="576" cy="884" r="12" fill="#f4f4f6" opacity=".85"/>
+</svg>

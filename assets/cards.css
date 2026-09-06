@@ -1,0 +1,3 @@
+/* Artist Hub — shared card surface (FLAT). Linked by index, dashboard, project, styleguide = single source. */
+.stat,.pc,.hub{background:var(--card)!important;border:1px solid var(--line)!important;position:relative;transition:transform .4s cubic-bezier(.34,1.56,.64,1),border-color .3s ease}
+.stat:hover,.pc:hover{border-color:var(--line2)!important;transform:translateY(-4px)}

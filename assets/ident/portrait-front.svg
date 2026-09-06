@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" fill="none" role="img" aria-label="Line-art portrait">
+  <defs><style>
+    .l{stroke:#f4f4f6;stroke-width:6;stroke-linecap:round;stroke-linejoin:round}
+    .l2{stroke:#f4f4f6;stroke-width:4.5;stroke-linecap:round;stroke-linejoin:round}
+    .f{stroke:#f4f4f6;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;opacity:.4}
+    .ind{stroke:#a78bfa;stroke-width:5.5;stroke-linecap:round;stroke-linejoin:round}
+    .vio{stroke:#6d5efc;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+  </style></defs>
+
+  <!-- jacket: broad notch lapel, shirt collar inside -->
+  <path class="l" d="M120 986 C132 862 196 782 292 748"/>
+  <path class="l" d="M680 986 C668 862 604 782 508 748"/>
+  <path class="l" d="M292 748 L340 812 L400 892"/>
+  <path class="l" d="M508 748 L460 812 L400 892"/>
+  <path class="l2" d="M340 812 L258 850"/>
+  <path class="l2" d="M460 812 L542 850"/>
+  <path class="l2" d="M346 754 L400 828 L454 754"/>
+  <path class="vio" d="M400 892 L400 986"/>
+  <circle cx="400" cy="928" r="6" fill="#6d5efc"/>
+
+  <!-- neck -->
+  <path class="l" d="M340 686 L332 758"/><path class="l" d="M460 686 L468 758"/>
+
+  <!-- head: wider cheeks, shorter face -->
+  <path class="l" d="M242 418 C242 522 282 620 350 662 C382 682 418 682 450 662 C518 620 558 522 558 418"/>
+  <path class="l" d="M242 418 C242 320 310 258 400 258 C490 258 558 320 558 418"/>
+  <path class="l2" d="M240 446 C224 442 216 460 222 478 C228 496 242 504 250 498"/>
+  <path class="l2" d="M560 446 C576 442 584 460 578 478 C572 496 558 504 550 498"/>
+
+  <!-- hair: volume on top, hugging the head, front swept up -->
+  <path fill="#f4f4f6" d="M236 424 C222 322 268 244 348 224 C428 204 512 234 546 300 C562 332 562 384 552 424
+    C540 366 518 330 482 312 C440 340 366 344 324 322 C292 344 250 366 236 424 Z"/>
+  <path class="f" d="M300 300 C330 278 366 266 402 268"/>
+  <path class="f" d="M440 268 C482 276 514 296 534 328"/>
+
+  <!-- brows -->
+  <path class="l2" d="M288 410 C312 394 348 392 372 400"/>
+  <path class="l2" d="M428 400 C454 392 488 394 512 410"/>
+
+  <!-- round glasses, sized to the face -->
+  <circle class="ind" cx="338" cy="462" r="52"/>
+  <circle class="ind" cx="462" cy="462" r="52"/>
+  <path class="ind" d="M390 456 C395 448 405 448 410 456"/>
+  <path class="ind" d="M286 452 L262 442"/>
+  <path class="ind" d="M514 452 L538 442"/>
+
+  <!-- eyes -->
+  <ellipse cx="338" cy="466" rx="11" ry="9" fill="#f4f4f6"/>
+  <ellipse cx="462" cy="466" rx="11" ry="9" fill="#f4f4f6"/>
+
+  <!-- nose -->
+  <path class="l2" d="M400 488 L393 556 C393 570 410 574 419 565"/>
+
+  <!-- moustache + mouth + soul patch -->
+  <path class="l2" d="M356 596 C376 584 396 584 400 592 C404 584 424 584 444 596"/>
+  <path class="l" d="M364 616 C386 624 414 624 436 614"/>
+  <path class="l2" d="M389 644 C396 650 404 650 411 644"/>
+
+  <!-- jaw stubble -->
+  <path class="f" d="M312 592 C320 626 336 654 358 670"/>
+  <path class="f" d="M488 592 C480 626 464 654 442 670"/>
+</svg>
