@@ -293,7 +293,7 @@ function initMotion(m) {
       if (seen.has(group)) return; seen.add(group);
       animate(items, { opacity: [0, 1], y: [28, 0], scale: [.97, 1] }, { delay: stagger(.07), duration: .6, ease: SPRING });
       if (group.hasAttribute('data-counters')) runCounters(group);
-    }, { amount: .25 });
+    }, { amount: .01 });
   });
   drawArt(animate, inView);
   const rail = $('.flow-rail');
