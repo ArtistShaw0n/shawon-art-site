@@ -79,20 +79,93 @@ $$('[data-copy]').forEach(function (b) {
   });
 });
 
-/* ---- contact form (static demo: Resend wires in at build) ---- */
+/* ---- contact form ------------------------------------------------------
+   ONE value turns this on: CONTACT.to — the address messages should reach.
+   With service 'formsubmit' the message is POSTed to FormSubmit, which mails
+   it to that address (free, no account; the very first message triggers a
+   one-time confirmation link sent to the same inbox — click it once and the
+   form is live). Set service to '' to hand the message to the visitor's own
+   mail client instead, or set endpoint to any other JSON form service.
+   The form never claims "Sent" unless something was actually sent. */
+window.CONTACT = {
+  to: 'shawon221b@gmail.com',
+  service: 'formsubmit',
+  endpoint: ''                 /* set to override the service entirely */
+};
+window.CONTACT.url = function () {
+  if (this.endpoint) return this.endpoint;
+  if (this.service === 'formsubmit' && this.to) return 'https://formsubmit.co/ajax/' + encodeURIComponent(this.to);
+  return '';
+};
+
 (function setupForm() {
   const f = $('[data-form]'); if (!f) return;
   function check(fld) { const el = fld.querySelector('.field'); if (!el) return true; const v = el.value.trim(); let ok = !!v; if (ok && el.type === 'email') ok = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v); fld.classList.toggle('invalid', !ok); el.setAttribute('aria-invalid', ok ? 'false' : 'true'); return ok; }
   function validate(form) { return $$('.fld', form).filter(function (fld) { return !check(fld); }); }
   $$('.fld .field', f).forEach(function (el) { el.addEventListener('input', function () { const fld = el.closest('.fld'); if (fld.classList.contains('invalid')) check(fld); }); });
-  const ok = $('[data-form-ok]'); const err = $('[data-form-err]');
+
+  const ok = $('[data-form-ok]'); const err = $('[data-form-err]'); const mail = $('[data-form-mail]');
+  const btn = f.querySelector('button[type="submit"]');
+  const SEND = 'Send <i class="ti ti-arrow-right" aria-hidden="true"></i>';
+  function hideAll() { [ok, err, mail].forEach(function (el) { if (el) el.hidden = true; }); }
+  function show(el) { if (!el) return; el.hidden = false; el.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); }
+  function idle() { btn.disabled = false; btn.innerHTML = SEND; }
+
   f.addEventListener('submit', function (e) {
     e.preventDefault();
-    if (ok) ok.hidden = true; if (err) err.hidden = true;
-    if (f.querySelector('[name="company"]') && f.querySelector('[name="company"]').value) { return; }
+    hideAll();
+    if (f.querySelector('[name="company"]') && f.querySelector('[name="company"]').value) return;
     const bad = validate(f); if (bad.length) { bad[0].querySelector('.field').focus(); return; }
-    const btn = f.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Sending…';
-    setTimeout(function () { btn.disabled = false; btn.innerHTML = 'Send <i class="ti ti-arrow-right" aria-hidden="true"></i>'; f.reset(); if (ok) { ok.hidden = false; ok.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } window.toast('Sent — thanks', { type: 'ok', icon: 'ti-send' }); }, 700);
+
+    const data = {
+      name: f.querySelector('[name="name"]').value.trim(),
+      email: f.querySelector('[name="email"]').value.trim(),
+      message: f.querySelector('[name="message"]').value.trim()
+    };
+    const C = window.CONTACT || {};
+    const url = C.url ? C.url() : '';
+
+    if (!url) {                              /* no service wired: hand it to the mail client */
+      const body = data.message + '\n\n— ' + data.name + ' (' + data.email + ')';
+      const href = 'mailto:' + (C.to || '')
+        + '?subject=' + encodeURIComponent('shawon.art — ' + data.name)
+        + '&body=' + encodeURIComponent(body);
+      /* tell the visitor first: handing off can be blocked, and silence would
+         leave them staring at a form that did nothing. */
+      show(mail);
+      window.toast('Opening your mail app', { type: 'info', icon: 'ti-mail' });
+      try { window.location.href = href; } catch (_) { /* blocked — the address is on the page */ }
+      return;
+    }
+
+    btn.disabled = true; btn.textContent = 'Sending…';
+    const ctl = ('AbortController' in window) ? new AbortController() : null;
+    const timer = setTimeout(function () { if (ctl) ctl.abort(); }, 15000);
+    fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        name: data.name, email: data.email, message: data.message,
+        _subject: 'shawon.art — ' + data.name,
+        _captcha: 'false', _template: 'table'
+      }),
+      signal: ctl ? ctl.signal : undefined
+    }).then(function (r) {
+      if (!r.ok) throw new Error(r.status);
+      /* a 200 is not proof of delivery: FormSubmit answers 200 with
+         success:"false" while a form is still awaiting activation, and
+         Formspree reports field errors the same way. Read the body. */
+      return r.json().catch(function () { return {}; });
+    }).then(function (body) {
+      const failed = body && (body.success === false || body.success === 'false' ||
+                              body.ok === false || (body.errors && body.errors.length));
+      if (failed) throw new Error((body && body.message) || 'rejected');
+      clearTimeout(timer); idle(); f.reset(); show(ok);
+      window.toast('Sent — thanks', { type: 'ok', icon: 'ti-send' });
+    }).catch(function () {
+      clearTimeout(timer); idle(); show(err);
+      window.toast("That didn't send", { type: 'error', icon: 'ti-alert-triangle' });
+    });
   });
 })();
 
