@@ -875,8 +875,15 @@ main > .console:first-child{margin-top:72px}
 .craft:focus-visible{outline:none}
 .craft:focus-visible .plate{box-shadow:0 0 0 2px var(--accent)}
 /* the real photo replaces the generated art */
-.craft .plate[style*="--plate"]::before{background:var(--plate) center/cover no-repeat}
-.craft .plate[style*="--plate"] .la{display:none}
+/* Below 640px the crafts become list rows with a 92px SQUARE thumbnail; a
+   browser-frame mockup centre-cropped to that is mush, so the phone keeps the
+   line icon it was drawn for and the mockup appears from tablet up, where the
+   plate is 4:3 and wide enough to read. */
+@media(min-width:640px){
+  .craft .plate[style*="--plate"]::before{background:var(--plate) center/cover no-repeat}
+  .craft .plate[style*="--plate"]::after{display:none}
+  .craft .plate[style*="--plate"] .la{display:none}
+}
 /* 640–1023: three across, same size everywhere, last row centred (a set never changes scale mid-way) */
 @media(min-width:640px) and (max-width:1023px){
   .crafts{display:flex;flex-wrap:wrap;justify-content:center;align-items:stretch;gap:16px}
