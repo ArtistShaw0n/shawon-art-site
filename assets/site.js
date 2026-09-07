@@ -231,7 +231,7 @@ const INDEX = [
   { k: 'Page', n: 'Art', s: 'Photography · Painting', u: 'art.html', g: 'linear-gradient(135deg,#1e293b,#475569)' },
   { k: 'Page', n: 'Photography', s: 'All photography series', u: 'art-photography.html', g: 'linear-gradient(135deg,#1e293b,#334155)' },
   { k: 'Page', n: 'Painting', s: 'All painting series', u: 'art-painting.html', g: 'linear-gradient(135deg,#312e81,#4338ca)' },
-  { k: 'Page', n: 'Writing', s: 'Essays & notes, as Rakhal', u: 'writing.html', g: 'linear-gradient(135deg,#0f172a,#6d5efc)' },
+  { k: 'Page', n: 'Writing', s: 'Essays & notes, as রাখাল', u: 'writing.html', g: 'linear-gradient(135deg,#0f172a,#6d5efc)' },
   { k: 'Page', n: 'About', s: 'Bio · roles · now · resume', u: 'about.html', g: 'linear-gradient(135deg,#f4f4f6,#a3a3ae)' },
   { k: 'Page', n: 'Contact', s: 'Projects · prints · anything', u: 'contact.html', g: 'linear-gradient(135deg,#d6ff4f,#84cc16)' },
   { k: 'Page', n: 'Shop', s: 'linearterra · five marketplaces', u: 'shop.html', g: 'linear-gradient(135deg,#a78bfa,#6d5efc)' },
@@ -256,11 +256,11 @@ const INDEX = [
   { k: 'Painting', n: 'Ink studies', s: '2026 · 9 pieces · ink on paper', u: 'series.html', g: 'linear-gradient(135deg,#0f172a,#6d5efc)' },
   { k: 'Painting', n: 'Landscapes', s: '2025 · 7 pieces · acrylic', u: 'series.html', g: 'linear-gradient(135deg,#14532d,#84cc16)' },
   { k: 'Painting', n: 'Figures', s: '2024 · 6 pieces · watercolour', u: 'series.html', g: 'linear-gradient(135deg,#7f1d1d,#f97316)' },
-  { k: 'Writing', n: 'Notes on building a design system twice', s: 'Rakhal · 2026 · 4 min', u: 'post.html', g: 'linear-gradient(135deg,#1e3a8a,#06b6d4)' },
-  { k: 'Writing', n: 'Shipping an ERP as a team of one', s: 'Rakhal · 2026 · 6 min', u: 'post.html', g: 'linear-gradient(135deg,#0f2027,#2c5364)' },
-  { k: 'Writing', n: 'Monsoon light', s: 'Rakhal · 2026 · 3 min', u: 'post.html', g: 'linear-gradient(135deg,#1e293b,#475569)' },
-  { k: 'Writing', n: 'One address for everything', s: 'Rakhal · 2026 · 5 min', u: 'post.html', g: 'linear-gradient(135deg,#a78bfa,#6d5efc)' },
-  { k: 'Writing', n: 'Ink, and then not fixing it', s: 'Rakhal · 2026 · 4 min', u: 'post.html', g: 'linear-gradient(135deg,#0f172a,#6d5efc)' },
+  { k: 'Writing', n: 'Notes on building a design system twice', s: 'রাখাল · 2026 · 4 min', u: 'post.html', g: 'linear-gradient(135deg,#1e3a8a,#06b6d4)' },
+  { k: 'Writing', n: 'Shipping an ERP as a team of one', s: 'রাখাল · 2026 · 6 min', u: 'post.html', g: 'linear-gradient(135deg,#0f2027,#2c5364)' },
+  { k: 'Writing', n: 'Monsoon light', s: 'রাখাল · 2026 · 3 min', u: 'post.html', g: 'linear-gradient(135deg,#1e293b,#475569)' },
+  { k: 'Writing', n: 'One address for everything', s: 'রাখাল · 2026 · 5 min', u: 'post.html', g: 'linear-gradient(135deg,#a78bfa,#6d5efc)' },
+  { k: 'Writing', n: 'Ink, and then not fixing it', s: 'রাখাল · 2026 · 4 min', u: 'post.html', g: 'linear-gradient(135deg,#0f172a,#6d5efc)' },
   { k: 'Marketplace', n: 'GraphicRiver', s: 'linearterra on Envato', u: 'https://graphicriver.net/user/linearterra', g: 'linear-gradient(135deg,#84cc16,#14532d)' }
 ];
 (function cmdk() {
