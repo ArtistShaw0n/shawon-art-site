@@ -800,9 +800,11 @@ main > .console:first-child{margin-top:72px}
   .v-meta{display:grid;grid-template-columns:1fr 1fr}
   .v-meta .pill{justify-content:center}
 }
-/* footer social icons: full rows (3×2 until the row of 6 fits) */
-.lfoot .socials{display:grid;grid-template-columns:repeat(3,max-content);gap:8px}
-@media(min-width:1024px){.lfoot .socials{grid-template-columns:repeat(7,max-content)}}
+/* Footer social icons. Fixed column counts left the 7th icon alone on its own
+   row at 390 and 768, and put the wide row exactly on its 300px limit at 1024.
+   Wrapping by available width fits all seven on a phone, breaks 4+3 in the
+   narrow 768 column, and needs no breakpoint of its own. */
+.lfoot .socials{display:flex;flex-wrap:wrap;gap:6px}
 
 /* VERTICAL ANCHORING / MIXED-CONTENT ROW — phone footer: brand block gets its own row; link lists share rows only with link lists */
 @media(max-width:767px){
@@ -1123,3 +1125,18 @@ a.brand{min-height:40px}
    is reset wherever the language is tagged. Bangla has no case either, so any
    inherited uppercasing is dropped. */
 [lang="bn"]{font-family:'Noto Sans Bengali',sans-serif;letter-spacing:normal;text-transform:none}
+
+/* Tile caption on a narrow tile. Title and series sit on one row, which fits
+   "Fire · Paint on paper" but not "Sundown · Digital painting" at two-up on a
+   phone — the series wrapped and the caption climbed into the picture. Below
+   640px they stack, so the length of a series name never crowds the art. */
+@media(max-width:639px){
+  .tile .tcap{flex-direction:column;align-items:flex-start;gap:2px}
+  .tile .tcap span:last-child{font-size:10px}
+}
+
+/* Hover tooltips are a mouse affordance and each icon already carries its
+   aria-label. Under 360px the widest of them ("Facebook — Artist page") reaches
+   past the viewport and puts a scrollbar on the page, so they stand down there;
+   nothing is lost that the label does not already say. */
+@media(max-width:359px){.gtip{display:none}}
