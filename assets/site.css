@@ -1140,3 +1140,10 @@ a.brand{min-height:40px}
    past the viewport and puts a scrollbar on the page, so they stand down there;
    nothing is lost that the label does not already say. */
 @media(max-width:359px){.gtip{display:none}}
+
+/* follower count riding inside a link chip — quiet, right-aligned, figures that line up */
+.chip .cnt{margin-left:auto;padding-left:12px;color:var(--tx3);font-family:'JetBrains Mono','Noto Sans Bengali',monospace;font-size:11px;letter-spacing:.04em;font-variant-numeric:tabular-nums}
+
+/* Eleven footer icons in the narrow tablet column (≈209px) wrapped 5+5+1, leaving
+   one alone on a row. Capping the row at four icons wide there gives 4+4+3. */
+@media(min-width:640px) and (max-width:1023px){.lfoot .socials{max-width:calc(4 * 36px + 3 * 6px)}}
