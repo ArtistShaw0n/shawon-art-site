@@ -1147,3 +1147,22 @@ a.brand{min-height:40px}
 /* Eleven footer icons in the narrow tablet column (≈209px) wrapped 5+5+1, leaving
    one alone on a row. Capping the row at four icons wide there gives 4+4+3. */
 @media(min-width:640px) and (max-width:1023px){.lfoot .socials{max-width:calc(4 * 36px + 3 * 6px)}}
+
+/* "Where to find me" with follower counts. Two 1fr columns grew to the chips'
+   min-content on a phone and pushed the right column — counts and all — past the
+   screen edge. One column below 640px, and columns that may never outgrow their
+   track anywhere. */
+.linkcols{grid-template-columns:repeat(auto-fit,minmax(0,1fr))}
+.linkcols > div{min-width:0}
+@media(max-width:639px){.linkcols{grid-template-columns:minmax(0,1fr)}}
+@media(min-width:640px) and (max-width:1023px){.linkcols{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(min-width:1024px){.linkcols{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.linkcols .chip{min-width:0}
+
+/* About console pills on a phone. The half-width grid broke "OnnoRokom Group"
+   onto two lines beside the one-line "Available". Pills keep their own width,
+   never wrap inside, and the row wraps between them instead. */
+@media(max-width:639px){
+  .console .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .console .pills .pill{white-space:nowrap}
+}
